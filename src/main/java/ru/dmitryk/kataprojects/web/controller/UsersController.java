@@ -24,7 +24,7 @@ public class UsersController {
     @GetMapping
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "users/index";
+        return "users/userlist";
     }
 
     @GetMapping("/{id}")
@@ -64,16 +64,6 @@ public class UsersController {
         userService.addUser(user);
         return "redirect:/users";
     }
-
-//    @PostMapping("/{id}/edit")
-//    public String updateUser(@Valid User user, BindingResult bindingResult, @PathVariable("id") int id) {
-//        if (bindingResult.hasErrors()) {
-//            return "users/edit";
-//        }
-//
-//        userService.addUser(user);
-//        return "redirect:/users";
-//    }
 
     @GetMapping("/delete-user/{id}")
     public String deleteUser(@PathVariable("id") int id) {
